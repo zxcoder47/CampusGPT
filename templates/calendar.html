@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Academic Calendar - Hazara University</title>
+  <link rel="stylesheet" href="style/styles.css" />
+  <style>
+    .calendar-container {
+      max-width: 750px;
+      margin: auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .calendar-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2f5233;
+    }
+
+    .calendar-container ul {
+      padding-left: 20px;
+      line-height: 2;
+    }
+
+    .calendar-container li {
+      list-style: disc;
+    }
+
+    .calendar-container p {
+      margin-top: 12px;
+      color: #444;
+    }
+
+    .calendar-container .btn {
+      display: block;
+      width: 100%;
+      margin-top: 30px;
+      padding: 12px;
+      text-align: center;
+      background-color: #76B947;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .calendar-container .btn:hover {
+      background-color: #5fa435;
+    }
+
+    @media (max-width: 480px) {
+      .calendar-container {
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .calendar-container h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="calendar-container">
+    <h2>Academic Calendar – 2025</h2>
+
+    <p>Here is the academic calendar for the upcoming academic year at Hazara University:</p>
+
+    <ul>
+      <li><strong>Spring Semester Starts:</strong> February 12, 2025</li>
+      <li><strong>Mid-Term Exams:</strong> March 25 – 29, 2025</li>
+      <li><strong>Spring Final Exams:</strong> May 20 – 31, 2025</li>
+      <li><strong>Summer Semester Starts:</strong> June 10, 2025</li>
+      <li><strong>Fall Semester Starts:</strong> September 2, 2025</li>
+      <li><strong>Fall Final Exams:</strong> December 10 – 21, 2025</li>
+      <li><strong>Winter Break:</strong> December 22, 2025 – January 4, 2026</li>
+    </ul>
+
+    <p>For any changes, please consult the university's academic affairs office or visit the official website.</p>
+
+    <a href="index.html" class="btn">⬅ Back to Home</a>
+  </section>
+
+  <!-- Chatbot -->
+  <div id="chatbot-container">
+    <div id="chatbot-header">
+      <h3><i class="fas fa-robot"></i> HU Assistant</h3>
+      <button id="close-chatbot">×</button>
+    </div>
+    <div id="chatbot-messages">
+      <div class="bot-message">Need help understanding semester dates?</div>
+    </div>
+    <div id="chatbot-input">
+      <input type="text" id="user-input" placeholder="Ask about exams or holidays..." />
+      <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+  <button id="chatbot-toggle" class="chatbot-visible">
+    <i class="fas fa-comments"></i> Need Help?
+  </button>
+
+  <script src="script/script.js"></script>
+</body>
+</html>

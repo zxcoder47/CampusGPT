@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Library - Hazara University</title>
+ <link rel="stylesheet" href="style/styles.css" />
+  <style>
+    .library-container {
+      max-width: 750px;
+      margin: auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .library-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2f5233;
+    }
+
+    .library-container ul {
+      padding-left: 20px;
+      line-height: 2;
+    }
+
+    .library-container p {
+      margin-top: 12px;
+      color: #444;
+    }
+
+    .library-container .btn {
+      display: block;
+      width: 100%;
+      margin-top: 30px;
+      padding: 12px;
+      text-align: center;
+      background-color: #76B947;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .library-container .btn:hover {
+      background-color: #5fa435;
+    }
+
+    @media (max-width: 480px) {
+      .library-container {
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .library-container h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="library-container">
+    <h2>Hazara University Library</h2>
+
+    <p>The university library provides a rich collection of printed and digital materials supporting research and education across all faculties.</p>
+
+    <ul>
+      <li>📘 Printed Books & Journals</li>
+      <li>💻 Digital Library Access via HEC</li>
+      <li>📖 Reading Rooms and Study Spaces</li>
+      <li>📚 Reference and Citation Support</li>
+      <li>🕒 Opening Hours: Mon–Fri, 8am – 4pm</li>
+    </ul>
+
+    <h3>HEC Digital Library Access</h3>
+    <p>Use the HEC portal to access thousands of academic journals and ebooks:</p>
+    <ul>
+      <li>🔗 <strong>Visit:</strong> <a href="https://www.digitallibrary.edu.pk/hazarauni.html" target="_blank">HEC Digital Library Portal</a></li>
+      <li>📶 <strong>On-campus:</strong> No login required</li>
+      <li>🔐 <strong>Off-campus:</strong> <a href="#offcampus">Request login</a> below</li>
+    </ul>
+
+    <h3 id="offcampus">Request Off-Campus Access</h3>
+    <form id="offcampus-access-form" style="margin-top: 20px;">
+      <label for="name">Full Name:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="email">University Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="department">Department:</label><br>
+      <input type="text" id="department" name="department" required><br><br>
+
+      <label for="message">Reason for Access (optional):</label><br>
+      <textarea id="message" name="message" rows="4"></textarea><br><br>
+
+      <button type="submit" class="btn">Submit Request</button>
+    </form>
+
+    <div id="form-response" style="margin-top: 15px; color: green;"></div>
+
+    <a href="index.html" class="btn">⬅ Back to Home</a>
+  </section>
+
+  <!-- Chatbot -->
+  <!-- Chatbot -->
+<div id="chatbot-container">
+  <div id="chatbot-header">
+    <h3><i class="fas fa-robot"></i> HU Assistant</h3>
+    <button id="close-chatbot">×</button>
+  </div>
+  <div id="chatbot-messages">
+    <div class="bot-message">Hi! How can I help you?</div>
+  </div>
+  <div id="chatbot-input">
+    <input type="text" id="user-input" placeholder="Ask something..." />
+    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<!-- Floating Button -->
+<button id="chatbot-toggle">
+  <i class="fas fa-comments"></i> Need Help?
+</button>
+
+  <script src="script/script.js"></script>
+  <script>
+    const accessForm = document.getElementById("offcampus-access-form");
+    const formResponse = document.getElementById("form-response");
+
+    if (accessForm) {
+      accessForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        formResponse.textContent = "✅ Your request has been submitted. You’ll receive access via email.";
+        accessForm.reset();
+      });
+    }
+  </script>
+</body>
+</html>

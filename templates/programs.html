@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Programs - Hazara University</title>
+  <link rel="stylesheet" href="style/styles.css" />
+  <style>
+    .programs-container {
+      max-width: 750px;
+      margin: auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .programs-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2f5233;
+    }
+
+    .programs-container input {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .programs-container ul {
+      list-style: disc;
+      padding-left: 20px;
+      line-height: 2;
+    }
+
+    .programs-container .btn {
+      display: block;
+      width: 100%;
+      margin-top: 30px;
+      padding: 12px;
+      text-align: center;
+      background-color: #76B947;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .programs-container .btn:hover {
+      background-color: #5fa435;
+    }
+
+    @media (max-width: 480px) {
+      .programs-container {
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .programs-container h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="programs-container">
+    <h2>Explore Academic Programs</h2>
+    <input type="text" id="programSearch" placeholder="Search programs..." />
+
+    <ul id="programList">
+      <li>BS Archaeology</li>
+      <li>BS Architecture</li>
+      <li>BS Art & Design</li>
+      <li>BS Communication & Media Studies</li>
+      <li>BS Conservation Studies</li>
+      <li>BS Education</li>
+      <li>BS English</li>
+      <li>BS Geology</li>
+      <li>BS Pakistan Studies</li>
+      <li>BS Tourism & Hospitality</li>
+      <li>BS Urdu</li>
+      <li>BS Agriculture</li>
+      <li>BS Biochemistry</li>
+      <li>BS Biotechnology</li>
+      <li>BS Botany</li>
+      <li>BS Human Genetics</li>
+      <li>BS Microbiology</li>
+      <li>DPT (Doctor of Physiotherapy)</li>
+      <li>BS Medical Lab Technology</li>
+      <li>BS Pharmacy</li>
+      <li>BS Zoology</li>
+      <li>BS Islamic & Religious Studies</li>
+      <li>LLB (Law)</li>
+      <li>BS Economics</li>
+      <li>BS Political Science</li>
+      <li>BS International Relations</li>
+      <li>BS Psychology</li>
+      <li>BS Sociology</li>
+      <li>BS Public Policy & Administration</li>
+      <li>BS Chemistry</li>
+      <li>BS Environmental Sciences</li>
+      <li>BS Mathematics</li>
+      <li>BS Physics</li>
+      <li>BS IT (Information Technology)</li>
+      <li>BS Statistics</li>
+      <li>BS Telecommunication</li>
+      <li>BS Artificial Intelligence</li>
+      <li>BS Software Engineering</li>
+      <li>BS Computer Science</li>
+      <li>BS Management Sciences</li>
+      <li>BS Bioinformatics</li>
+      <li>MPhil Zoology</li>
+      <li>PhD Zoology</li>
+    </ul>
+
+    <a href="index.html" class="btn">⬅ Back to Home</a>
+  </section>
+
+  <!-- Chatbot -->
+  <div id="chatbot-container">
+    <div id="chatbot-header">
+      <h3><i class="fas fa-robot"></i> HU Assistant</h3>
+      <button id="close-chatbot">×</button>
+    </div>
+    <div id="chatbot-messages">
+      <div class="bot-message">Looking for a program? Type it above or ask me.</div>
+    </div>
+    <div id="chatbot-input">
+      <input type="text" id="user-input" placeholder="Ask about program details..." />
+      <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+  <button id="chatbot-toggle" class="chatbot-visible">
+    <i class="fas fa-comments"></i> Need Help?
+  </button>
+
+  <script src="script/script.js"></script>
+  <script>
+    const searchBox = document.getElementById("programSearch");
+    const programList = document.getElementById("programList");
+    const listItems = Array.from(programList.getElementsByTagName("li"));
+
+    searchBox.addEventListener("input", () => {
+      const filter = searchBox.value.toLowerCase();
+      listItems.forEach((item) => {
+        item.style.display = item.textContent.toLowerCase().includes(filter) ? "" : "none";
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Research - Hazara University</title>
+  <link rel="stylesheet" href="style/styles.css" />
+  <style>
+    .research-container {
+      max-width: 750px;
+      margin: auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .research-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2f5233;
+    }
+
+    .research-container ul {
+      padding-left: 20px;
+      line-height: 2;
+    }
+
+    .research-container p {
+      margin-top: 12px;
+      color: #444;
+    }
+
+    .research-container .btn {
+      display: block;
+      width: 100%;
+      margin-top: 30px;
+      padding: 12px;
+      text-align: center;
+      background-color: #76B947;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .research-container .btn:hover {
+      background-color: #5fa435;
+    }
+
+    @media (max-width: 480px) {
+      .research-container {
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .research-container h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="research-container">
+    <h2>Research at Hazara University</h2>
+
+    <p>Hazara University promotes innovation and knowledge across all faculties through advanced research, interdisciplinary collaboration, and industry engagement.</p>
+
+    <h3>Key Research Areas:</h3>
+    <ul>
+      <li>Environmental and Climate Change Studies</li>
+      <li>Biotechnology and Life Sciences</li>
+      <li>Heritage and Cultural Preservation</li>
+      <li>Data Science and AI</li>
+      <li>Social Sciences and Policy Development</li>
+    </ul>
+
+    <h3>Research Centers:</h3>
+    <ul>
+      <li>Center for Climate & Environmental Research</li>
+      <li>Bioinformatics & Molecular Genetics Lab</li>
+      <li>HU Archaeology and Cultural Studies Center</li>
+      <li>AI & Data Science Research Cluster</li>
+    </ul>
+
+    <p>For funding opportunities, conferences, and thesis support, contact the university’s research office or visit the official website.</p>
+
+    <a href="index.html" class="btn">⬅ Back to Home</a>
+  </section>
+
+  <!-- Chatbot -->
+  <div id="chatbot-container">
+    <div id="chatbot-header">
+      <h3><i class="fas fa-robot"></i> HU Assistant</h3>
+      <button id="close-chatbot">×</button>
+    </div>
+    <div id="chatbot-messages">
+      <div class="bot-message">Need help with research info or publications?</div>
+    </div>
+    <div id="chatbot-input">
+      <input type="text" id="user-input" placeholder="Ask about research centers..."/>
+      <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+  <button id="chatbot-toggle" class="chatbot-visible">
+    <i class="fas fa-comments"></i> Need Help?
+  </button>
+
+  <script src="script/script.js"></script>
+</body>
+</html>
