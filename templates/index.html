@@ -4,10 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hazara University - Home</title>
-  <link rel="stylesheet" href="style/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
@@ -133,6 +131,200 @@
       margin-top: 40px;
     }
 
+    /* WORKING CHATBOT STYLES */
+    .chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #2f5233 0%, #1a2e35 100%);
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 9999;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .chatbot-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    .chatbot-toggle i {
+      margin-right: 8px;
+    }
+
+    .chatbot-container {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      display: none;
+      flex-direction: column;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .chatbot-container.active {
+      display: flex;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chatbot-header {
+      background: linear-gradient(135deg, #2f5233 0%, #1a2e35 100%);
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chatbot-header h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .chatbot-header i {
+      margin-right: 8px;
+    }
+
+    .chatbot-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+
+    .chatbot-close:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background-color: #f8f9fa;
+    }
+
+    .chat-message {
+      margin-bottom: 15px;
+      max-width: 85%;
+      word-wrap: break-word;
+      white-space: pre-line;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .bot-message {
+      background: #e9ecef;
+      color: #333;
+      padding: 12px 16px;
+      border-radius: 18px 18px 18px 5px;
+      align-self: flex-start;
+    }
+
+    .user-message {
+      background: linear-gradient(135deg, #2f5233 0%, #1a2e35 100%);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 18px 18px 5px 18px;
+      margin-left: auto;
+      text-align: left;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chatbot-input {
+      padding: 20px;
+      background: white;
+      border-top: 1px solid #e9ecef;
+      display: flex;
+      gap: 10px;
+    }
+
+    .chatbot-input input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 2px solid #e9ecef;
+      border-radius: 25px;
+      outline: none;
+      font-size: 14px;
+      transition: border-color 0.3s ease;
+    }
+
+    .chatbot-input input:focus {
+      border-color: #2f5233;
+    }
+
+    .chatbot-send {
+      background: linear-gradient(135deg, #2f5233 0%, #1a2e35 100%);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .chatbot-send:hover {
+      transform: scale(1.05);
+    }
+
+    /* Scrollbar */
+    .chatbot-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .chatbot-messages::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .chatbot-messages::-webkit-scrollbar-thumb {
+      background: #2f5233;
+      border-radius: 10px;
+    }
+
     @media (max-width: 480px) {
       header h1 {
         font-size: 1.4rem;
@@ -151,155 +343,101 @@
         width: 90%;
         box-sizing: border-box;
       }
-    }
 
-    /* Chatbot Styling */
-    #chatbot-container {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      width: 320px;
-      max-height: 500px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      display: none;
-      flex-direction: column;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      z-index: 9999;
-      overflow: hidden;
-    }
-
-    #chatbot-header {
-      background-color: #2f5233;
-      color: white;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    #close-chatbot {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-
-    #chatbot-messages {
-      padding: 10px;
-      height: 250px;
-      overflow-y: auto;
-      font-size: 0.95rem;
-    }
-
-    .bot-message, .user-message {
-      background-color: #eaf4ea;
-      padding: 8px 12px;
-      margin-bottom: 8px;
-      border-radius: 6px;
-      max-width: 90%;
-    }
-
-    .user-message {
-      background-color: #d3f3d3;
-      align-self: flex-end;
-      text-align: right;
-    }
-
-    #chatbot-input {
-      padding: 10px;
-      display: flex;
-      gap: 8px;
-      background-color: #f8f8f8;
-      border-top: 1px solid #ccc;
-    }
-
-    #chatbot-input input {
-      flex: 1;
-      padding: 8px;
-      font-size: 1rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    #chatbot-input button {
-      background-color: #76B947;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-
-    #chatbot-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #2f5233;
-      color: white;
-      border: none;
-      padding: 12px 16px;
-      border-radius: 50px;
-      font-size: 1rem;
-      cursor: pointer;
-      z-index: 9999;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    @media (max-width: 480px) {
-      #chatbot-container {
-        width: 90%;
-        right: 5%;
-        bottom: 90px;
+      .chatbot-container {
+        width: calc(100vw - 40px);
+        height: 70vh;
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
       }
 
-      #chatbot-toggle {
-        right: 10px;
-        bottom: 20px;
-        font-size: 0.9rem;
-        padding: 10px 14px;
+      .chatbot-toggle {
+        right: 15px;
+        bottom: 15px;
+        font-size: 12px;
+        padding: 12px 16px;
       }
     }
   </style>
+    <link rel="stylesheet" href="style/chatbot.css">
+    <script src="script/chatbot.js"></script>
 </head>
 <body>
-<header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background-color: #2f5233; flex-wrap: wrap;">
-  <div style="display: flex; align-items: center;">
-    <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-    <img src="https://cdn.moawin.pk/images/branches/2024/04/29/654654_1pv84.png" alt="Hazara University Logo" style="height: 50px; margin-right: 15px;">
-    <h1 style="color: white; font-size: 1.5rem; margin: 0;">Hazara University Mansehra</h1>
+<header style="
+  background: #1a2e35;
+  padding: 12px 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+">
+  <div style="
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+  ">
+    <a href="index.html" style="display: flex; align-items: center; gap: 15px; text-decoration: none;">
+  <img src="https://cdn.moawin.pk/images/branches/2024/04/29/654654_1pv84.png" 
+       alt="Hazara University Logo" 
+       style="height: 40px;">
+  <h1 style="
+    color: #e0f2fe;
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 600;
+  ">
+    Hazara University
+  </h1>
 </a>
 
-  </div>
-
-  <div style="display: flex; flex-direction: column; align-items: flex-end;">
     <nav>
-      <ul style="list-style: none; display: flex; gap: 20px; padding: 0; margin: 0;">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="admission.html">Admissions</a></li>
-        <li><a href="faculties.html">Faculties</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="library.html">Library</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="signup.html">Signup</a></li>
-        <li><a href="student-portal.html">Student Portal</a></li>
+      <ul style="
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        padding: 0;
+        margin: 0;
+      ">
+        <li><a href="index.html" style="color: #bae6fd; text-decoration: none; font-weight: 500; font-size: 0.95rem;">Home</a></li>
+        <li><a href="admission.html" style="color: #bae6fd; text-decoration: none; font-weight: 500; font-size: 0.95rem;">Admissions</a></li>
+        <li><a href="faculties.html" style="color: #bae6fd; text-decoration: none; font-weight: 500; font-size: 0.95rem;">Faculties</a></li>
+        <li><a href="programs.html" style="color: #bae6fd; text-decoration: none; font-weight: 500; font-size: 0.95rem;">Programs</a></li>
+        <li><a href="calendar.html" style="color: #bae6fd; text-decoration: none; font-weight: 500; font-size: 0.95rem;">Calendar</a></li>
+        <li><a href="research.html" style="color: #bae6fd; text-decoration: none; font-weight: 500; font-size: 0.95rem;">Research</a></li>
+        <li><a href="library.html" style="color: #bae6fd; text-decoration: none; font-weight: 500; font-size: 0.95rem;">Library</a></li>
+        <li><a href="student-portal.html" style="color: #bae6fd; text-decoration: none; font-weight: 500; font-size: 0.95rem;">Student Portal</a></li>
+        <li><a href="signup.html" style="color: #bae6fd; text-decoration: none; font-weight: 500; font-size: 0.95rem;">Sign up</a></li>
+        <li><a href="login.html" style="color: #bae6fd; text-decoration: none; font-weight: 500; font-size: 0.95rem;">Login</a></li>
       </ul>
     </nav>
 
-    <div class="search-bar" style="margin-top: 10px;">
-      <form action="#" method="get" style="display: flex; align-items: center;">
-        <input type="text" name="q" placeholder="Search..." 
-               style="padding: 8px 12px; border-radius: 6px 0 0 6px; border: 1px solid #ccc; outline: none;">
-        <button type="submit" 
-                style="padding: 8px 14px; background-color: #76B947; color: white; border: none; border-radius: 0 6px 6px 0; cursor: pointer;">
-          🔍
-        </button>
-      </form>
+    <div style="
+      display: flex;
+      align-items: center;
+      background: #2d4a53;
+      border-radius: 4px;
+      padding: 4px 8px;
+    ">
+      <input type="text" placeholder="Search" style="
+        background: transparent;
+        border: none;
+        color: white;
+        padding: 6px 10px;
+        width: 120px;
+        outline: none;
+      ">
+      <button style="
+        background: transparent;
+        border: none;
+        color: #7dd3fc;
+        cursor: pointer;
+        padding: 0 4px;
+      ">
+        <i class="fas fa-search"></i>
+      </button>
     </div>
   </div>
 </header>
@@ -364,78 +502,5 @@
     <p>&copy; 2025 Hazara University Mansehra. All Rights Reserved.</p>
   </footer>
 
-  <!-- Chatbot -->
-  <div id="chatbot-container">
-    <div id="chatbot-header">
-      <h3><i class="fas fa-robot"></i> HU Assistant</h3>
-      <button id="close-chatbot">×</button>
-    </div>
-    <div id="chatbot-messages">
-      <div class="bot-message">Hi! How can I help you?</div>
-    </div>
-    <div id="chatbot-input">
-      <input type="text" id="user-input" placeholder="Ask something..." />
-      <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
-    </div>
-  </div>
-
-  <button id="chatbot-toggle">
-    <i class="fas fa-comments"></i> Need Help?
-  </button>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const chatbotToggle = document.getElementById("chatbot-toggle");
-      const chatbotContainer = document.getElementById("chatbot-container");
-      const closeChatbot = document.getElementById("close-chatbot");
-      const userInput = document.getElementById("user-input");
-      const sendBtn = document.getElementById("send-btn");
-      const chatbotMessages = document.getElementById("chatbot-messages");
-
-      if (chatbotToggle && chatbotContainer) {
-        chatbotToggle.addEventListener("click", () => {
-          chatbotContainer.style.display = "flex";
-        });
-      }
-
-      if (closeChatbot) {
-        closeChatbot.addEventListener("click", () => {
-          chatbotContainer.style.display = "none";
-        });
-      }
-
-      if (sendBtn && userInput && chatbotMessages) {
-        sendBtn.addEventListener("click", () => {
-          const message = userInput.value.trim();
-          if (message !== "") {
-            const userMessage = document.createElement("div");
-            userMessage.className = "user-message";
-            userMessage.textContent = message;
-            chatbotMessages.appendChild(userMessage);
-
-            const botMessage = document.createElement("div");
-            botMessage.className = "bot-message";
-            botMessage.textContent = "Thank you! We'll get back to you shortly.";
-            chatbotMessages.appendChild(botMessage);
-
-            userInput.value = "";
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-          }
-        });
-      }
-
-      const contactForm = document.getElementById("contact-form");
-      const contactResponse = document.getElementById("form-response");
-
-      if (contactForm) {
-        contactForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-          contactResponse.textContent = "✅ Your message has been sent! We'll get back to you shortly.";
-          contactForm.reset();
-        });
-      }
-    });
-  </script>
-  <script src="script/script.js"></script>
 </body>
 </html>
